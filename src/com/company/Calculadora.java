@@ -8,6 +8,11 @@ public class Calculadora {
     private ArrayList<Integer> pila;
     private ArrayList<Variable> memoria;
 
+    public Calculadora() {
+        this.programa = new Programa();
+        this.pila = new ArrayList<Integer>();
+        this.memoria = new ArrayList<Variable>();
+    }
 
     public ArrayList<Integer> getPila() {
         return pila;
@@ -70,16 +75,23 @@ public class Calculadora {
     }
 
     public void read(Variable num) {
-        pila.add(num.getValor());
+        if(pila!=null) {
+            pila.add(num.getValor());
+        }
     }
 
     public Variable buscarVariablePorSuNombre(String nombreVariable){
-
-        for (Variable aux : memoria){
-            if( (aux.getNombre()).equals(nombreVariable) ){
-                return  aux;
+        if(memoria!=null){
+            for (Variable aux : this.memoria){
+                if( (aux.getNombre()).equals(nombreVariable) ){
+                    return  aux;
+                }
             }
         }
+        else {
+          this.memoria= new ArrayList<>();
+        }
+
         Variable nuevaVariable = new Variable(nombreVariable);
         memoria.add(nuevaVariable);
         return nuevaVariable;
@@ -118,12 +130,8 @@ public class Calculadora {
                 }
             }
         }
-        for (Integer numeroAux:pila) {
-            pila.remove(numeroAux);
-        }
-        for (Variable variableAux:memoria) {
-            memoria.remove(variableAux);
-        }
+        pila.clear();
+        memoria.clear();
     }
 
     public static void main(String[] args) {
@@ -144,10 +152,15 @@ public class Calculadora {
         p.agregarInstruccion("rutina2", new Instruccion(MUL));
         p.agregarInstruccion("rutina2", new Instruccion(WRITE, "x"));
         p.agregarInstruccion("rutina2", new Instruccion(PUSH, 2));
+        p.agregarInstruccion("rutina3", new Instruccion(PUSH,20));
+        //p.agregarInstruccion("rutina3", new Instruccion(PUSH,40));
+        p.agregarInstruccion("rutina3", new Instruccion(ADD));
+
 
         Calculadora calc = new Calculadora();
         calc.cargarPrograma(p);
-        calc.ejecutar("rutina2");
+
+        calc.ejecutar("rutina3");
     }
 
 
