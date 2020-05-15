@@ -5,39 +5,32 @@ public class Instruccion {
     private int valor;
     private String nombreVariable;
 
-    public Instruccion(String operacion, int valor) {
-        this.operacion=operacion;
-        this.valor=valor;
-    }
-    public Instruccion(String operacion) {
-        this.operacion=operacion;
-    }
-    public Instruccion(String operacion, String variable) {
-        this.operacion=operacion;
-        this.nombreVariable=variable;
-    }
+    //CONSTRUCTORES
+        public Instruccion(String operacion, int valor) {
+            this.operacion=operacion;
+            this.valor=valor;
+        }
+        public Instruccion(String operacion) {
+            this.operacion=operacion;
+        }
+        public Instruccion(String operacion, String variable) {
+            this.operacion=operacion;
+            this.nombreVariable=variable;
+        }
 
-    public int getValor() {
-        return valor;
-    }
+    //GETTERS
+        public int getValor() { return valor; }
 
-    public String getOperacion() {
-        return operacion;
-    }
+        public String getOperacion() { return operacion; }
 
-    public String getNombreVariable() {
+        public String getNombreVariable() {
         return nombreVariable;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
+    //SETTERS
+        public void setValor(int valor) { this.valor = valor; }
 
-    public void setOperacion(String operacion) {
-        this.operacion = operacion;
-    }
+        public void setOperacion(String operacion) { this.operacion = operacion; }
 
-    public void setNombreVariable(String nombreVariable) {
-        this.nombreVariable = nombreVariable;
-    }
+        public void setNombreVariable(String nombreVariable) { this.nombreVariable = nombreVariable; }
 }

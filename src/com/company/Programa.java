@@ -6,28 +6,30 @@ public class Programa {
     private ArrayList<Rutina> rutinas;
 
     public Programa(){
-        ArrayList<Rutina> rutinas = new ArrayList<>();
-        this.rutinas = rutinas;
+        this.rutinas = new ArrayList<>();
     }
 
-    public void agregarInstruccion(String rutina, Instruccion nueva_instruccion){
-        boolean rutina_existente = false;
-        for(Rutina aux : rutinas){
-            if((aux.getNombre()).equals(rutina)){
-                aux.addInstrucciones(nueva_instruccion);
-                rutina_existente = true;
+    //METODO PRINCIPAL
+        public void agregarInstruccion(String rutina, Instruccion nueva_instruccion){
+            boolean rutina_existente = false;
+            for(Rutina aux : rutinas){
+                if((aux.getNombre()).equals(rutina)){
+                    aux.addInstrucciones(nueva_instruccion);
+                    rutina_existente = true;
+                }
+            }
+            if(!rutina_existente){
+                rutinas.add(new Rutina(rutina, nueva_instruccion));
             }
         }
-        if(!rutina_existente){
-            rutinas.add(new Rutina(rutina, nueva_instruccion));
-        }
-    }
 
-    public ArrayList<Rutina> getRutinas() {
+    //GETTER
+        public ArrayList<Rutina> getRutinas() {
         return rutinas;
     }
 
-    public void setRutinas(ArrayList<Rutina> rutinas) {
+    //SETTER
+        public void setRutinas(ArrayList<Rutina> rutinas) {
         this.rutinas = rutinas;
     }
 }

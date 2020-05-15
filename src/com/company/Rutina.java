@@ -13,22 +13,26 @@ public class Rutina {
         instrucciones.add(instruccion);
     }
 
-
+    //METODO PRINCIPAL
     public void addInstrucciones(Instruccion instruccion) {
         this.instrucciones.add(instruccion);
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-    public ArrayList<Instruccion> getInstrucciones() {
+    //GETTERS
+        public String getNombre() {
+            return nombre;
+        }
+
+        public ArrayList<Instruccion> getInstrucciones() {
         return instrucciones;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public void setInstrucciones(ArrayList<Instruccion> instrucciones) {
+
+    //SETTERS
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public void setInstrucciones(ArrayList<Instruccion> instrucciones) {
         this.instrucciones = instrucciones;
     }
-
 }
